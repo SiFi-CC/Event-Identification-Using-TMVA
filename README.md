@@ -17,7 +17,6 @@ https://github.com/SiFi-CC/Event-Identification-Using-TMVA/
 To get sources run:
 
 ```
-20
 git clone https://github.com/SiFi-CC/Event-Identification-Using-TMVA/
-21
+
 ```
