@@ -29,13 +29,15 @@ mkdir build
 cd build
 cmake ../source
 make
-./CompId ./path_to_EI.txt
+./CompId ../path_to_EI.txt
 ```
 running Machine Learning
 -------------------------
 ```
-cd TMVA directory
-run the first two macros, FirstHalfStatistics.C and SecondHalfStatistics.C
-then, run EventClassification.C (for training)
-run Application.C (for analysis)
+cd TMVA directory, run the following macros,
+FirstHalfStatistics.C 
+SecondHalfStatistics.C
+EventClassification.C (for training)
+RESRegressionFinal.C (for energy regression)
+Application.C (for analysis)
 ```
