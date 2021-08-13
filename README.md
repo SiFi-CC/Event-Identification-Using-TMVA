@@ -1,4 +1,4 @@
-# Event-Identification-Using-TMVA
+# EventIdentificationUsingTMVA
 The SiFi-CC machine learning model identifies true Compton events. Different models available in TMVA compete and their performances are compared. Moreover, the energy regression is available to correct the total deposited energies of the predicted Compton events.
 
 
@@ -19,4 +19,15 @@ To get sources run:
 ```
 git clone https://github.com/SiFi-CC/Event-Identification-Using-TMVA/
 
+```
+Building and running
+-------------------------
+```
+cd EventIdentificationUsingTMVA
+in the EventIdentificationUsingTMVA directory run:
+mkdir build
+cd build
+cmake ../source
+make
+./CompId ./path_to_EI.txt
 ```
