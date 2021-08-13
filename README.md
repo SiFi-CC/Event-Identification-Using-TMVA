@@ -3,7 +3,7 @@ The SiFi-CC machine learning model identifies true Compton events. Different mod
 
 
 Prerequisites
-------------------------------------------------
+-------------
 * Minimum Required ROOT version: 6.13/01, but better 6.18.04 or later
 
 Sources
@@ -21,7 +21,7 @@ git clone https://github.com/SiFi-CC/EventIdentificationUsingTMVA/
 
 ```
 Building and running (preparing data sample)
--------------------------
+--------------------------------------------
 ```
 cd EventIdentificationUsingTMVA
 in the EventIdentificationUsingTMVA directory run:
@@ -31,8 +31,8 @@ cmake ../source
 make
 ./CompId ../path_to_EI.txt
 ```
-running Machine Learning
--------------------------
+running Machine Learning Models
+-------------------------------
 ```
 cd TMVA directory, run the following macros,
 FirstHalfStatistics.C 
