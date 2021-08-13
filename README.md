@@ -11,16 +11,16 @@ Sources
 
 Sources repository:
 ```
-https://github.com/SiFi-CC/Event-Identification-Using-TMVA/
+https://github.com/SiFi-CC/EventIdentificationUsingTMVA/
 
 ```
 To get sources run:
 
 ```
-git clone https://github.com/SiFi-CC/Event-Identification-Using-TMVA/
+git clone https://github.com/SiFi-CC/EventIdentificationUsingTMVA/
 
 ```
-Building and running
+Building and running (preparing data sample)
 -------------------------
 ```
 cd EventIdentificationUsingTMVA
@@ -30,4 +30,12 @@ cd build
 cmake ../source
 make
 ./CompId ./path_to_EI.txt
+```
+running Machine Learning
+-------------------------
+```
+cd TMVA directory
+run the first two FirstHalfStatistics.C and SecondHalfStatistics.C
+then, run EventClassification.C (for training)
+run Application.C (for analysis)
 ```
