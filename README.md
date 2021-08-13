@@ -4,7 +4,7 @@ The SiFi-CC machine learning model identifies true Compton events. Different mod
 
 Prerequisites
 ------------------------------------------------
-* Required ROOT version: 6.13/01, but better 6.18.04 or later
+* Minimum Required ROOT version: 6.13/01, but better 6.18.04 or later
 
 Sources
 -------
