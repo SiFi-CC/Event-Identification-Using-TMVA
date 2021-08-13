@@ -35,7 +35,7 @@ running Machine Learning
 -------------------------
 ```
 cd TMVA directory
-run the first two FirstHalfStatistics.C and SecondHalfStatistics.C
+run the first two macros, FirstHalfStatistics.C and SecondHalfStatistics.C
 then, run EventClassification.C (for training)
 run Application.C (for analysis)
 ```
