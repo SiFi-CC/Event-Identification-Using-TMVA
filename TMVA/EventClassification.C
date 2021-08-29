@@ -352,6 +352,12 @@ void TMVACrossValidation()
    dataloader2->AddVariable( "EnergyCluster_abs","EnergyCluster_abs", 'F', 0, 20 );
    dataloader2->AddVariable( "Energy_Scat","Energy_Scat", 'F', 0, 20 );
    
+   dataloader2->AddVariable( "PosX_Scat","PosX_Scat", 'F', 0, 450 );
+   dataloader2->AddVariable( "PosY_Scat","PosY_Scat", 'F', -60, 60 );
+   dataloader2->AddVariable( "PosZ_Scat","PosZ_Scat", 'F', -60, 60 );
+   dataloader2->AddVariable( "PosX_Abs","PosX_Abs", 'F', 0, 450 );
+   dataloader2->AddVariable( "PosY_Abs","PosY_Abs", 'F', -60, 60 );
+   dataloader2->AddVariable( "PosZ_Abs","PosZ_Abs", 'F', -60, 60 );
    
    dataloader2->AddSpectator("eventID");
    
@@ -366,6 +372,12 @@ void TMVACrossValidation()
    dataloader3->AddVariable( "Energy_Scat","Energy_Scat", 'F', 0, 20 );
    dataloader3->AddVariable( "AngularDistribution","AngularDistribution", 'F', -2, 8 );
    
+   dataloader3->AddVariable( "PosX_Scat","PosX_Scat", 'F', 0, 450 );
+   dataloader3->AddVariable( "PosY_Scat","PosY_Scat", 'F', -60, 60 );
+   dataloader3->AddVariable( "PosZ_Scat","PosZ_Scat", 'F', -60, 60 );
+   dataloader3->AddVariable( "PosX_Abs","PosX_Abs", 'F', 0, 450 );
+   dataloader3->AddVariable( "PosY_Abs","PosY_Abs", 'F', -60, 60 );
+   dataloader3->AddVariable( "PosZ_Abs","PosZ_Abs", 'F', -60, 60 );
    
    dataloader3->AddSpectator("eventID");
    
@@ -380,6 +392,13 @@ void TMVACrossValidation()
    dataloader4->AddVariable( "Energy_Scat","Energy_Scat", 'F', 0, 20 );
    dataloader4->AddVariable( "AngularDistribution","AngularDistribution", 'F', -2, 8 );
    
+   dataloader4->AddVariable( "PosX_Scat","PosX_Scat", 'F', 0, 450 );
+   dataloader4->AddVariable( "PosY_Scat","PosY_Scat", 'F', -60, 60 );
+   dataloader4->AddVariable( "PosZ_Scat","PosZ_Scat", 'F', -60, 60 );
+   dataloader4->AddVariable( "PosX_Abs","PosX_Abs", 'F', 0, 450 );
+   dataloader4->AddVariable( "PosY_Abs","PosY_Abs", 'F', -60, 60 );
+   dataloader4->AddVariable( "PosZ_Abs","PosZ_Abs", 'F', -60, 60 );
+   
    dataloader4->AddSpectator("eventID");
    
    dataloader4->AddSignalTree    ( signal4,     signalWeight       );
@@ -393,6 +412,13 @@ void TMVACrossValidation()
    dataloader5->AddVariable( "Energy_Scat","Energy_Scat", 'F', 0, 20 );
    dataloader5->AddVariable( "AngularDistribution","AngularDistribution", 'F', -2, 8 );
    
+   dataloader5->AddVariable( "PosX_Scat","PosX_Scat", 'F', 0, 450 );
+   dataloader5->AddVariable( "PosY_Scat","PosY_Scat", 'F', -60, 60 );
+   dataloader5->AddVariable( "PosZ_Scat","PosZ_Scat", 'F', -60, 60 );
+   dataloader5->AddVariable( "PosX_Abs","PosX_Abs", 'F', 0, 450 );
+   dataloader5->AddVariable( "PosY_Abs","PosY_Abs", 'F', -60, 60 );
+   dataloader5->AddVariable( "PosZ_Abs","PosZ_Abs", 'F', -60, 60 );
+   
    
    dataloader5->AddSpectator("eventID");
    
@@ -405,8 +431,7 @@ void TMVACrossValidation()
 // The CV mechanism of TMVA splits up the training set into several folds.
 // The test set is currently left unused. The `nTest_ClassName=1` assigns
 // one event to the the test set for each class and puts the rest in the
-// training set. A value of 0 is a special value and would split the
-// datasets 50 / 50.
+// training set.
    
    dataloader2->PrepareTrainingAndTestTree("", "",
                                           "nTest_Signal=0"
@@ -485,7 +510,7 @@ void TMVACrossValidation()
                             ":!Silent"
                             ":!ModelPersistence"
                             ":!FoldFileOutput"
-                            ":OutputEnsembling=Avg"
+                            ":OutputEnsembling=None"
                             ":AnalysisType=%s"
                             ":SplitType=%s"
                             ":NumFolds=%i"
@@ -524,50 +549,50 @@ void TMVACrossValidation()
    //
    
    cv2.BookMethod(TMVA::Types::kBDT, "BDT",
-                           "!H:!V:NTrees=2000:MinNodeSize=5%:MaxDepth=3:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:CreateMVAPdfs:NbinsMVAPdf=200:NsmoothMVAPdf=10:SeparationType=GiniIndex:nCuts=-1" );
+                           "!H:!V:NTrees=850:MinNodeSize=5%:MaxDepth=3:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:CreateMVAPdfs:NbinsMVAPdf=200:NsmoothMVAPdf=10:SeparationType=GiniIndex:nCuts=-1" );
    
  
    cv3.BookMethod(TMVA::Types::kBDT, "BDT",
-                           "!H:!V:NTrees=2000:MinNodeSize=5%:MaxDepth=3:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:CreateMVAPdfs:NbinsMVAPdf=200:NsmoothMVAPdf=10:SeparationType=GiniIndex:nCuts=-1" );
+                           "!H:!V:NTrees=850:MinNodeSize=5%:MaxDepth=3:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:CreateMVAPdfs:NbinsMVAPdf=200:NsmoothMVAPdf=10:SeparationType=GiniIndex:nCuts=-1" );
    
      
    cv4.BookMethod(TMVA::Types::kBDT, "BDT",
-                           "!H:!V:NTrees=2000:MinNodeSize=5%:MaxDepth=3:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:CreateMVAPdfs:NbinsMVAPdf=200:NsmoothMVAPdf=10:SeparationType=GiniIndex:nCuts=-1" );
+                           "!H:!V:NTrees=850:MinNodeSize=5%:MaxDepth=3:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:CreateMVAPdfs:NbinsMVAPdf=200:NsmoothMVAPdf=10:SeparationType=GiniIndex:nCuts=-1" );
    
    
    cv5.BookMethod(TMVA::Types::kBDT, "BDT",
-                           "!H:!V:NTrees=2000:MinNodeSize=5%:MaxDepth=3:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:CreateMVAPdfs:NbinsMVAPdf=200:NsmoothMVAPdf=10:SeparationType=GiniIndex:nCuts=-1" );
+                           "!H:!V:NTrees=850:MinNodeSize=5%:MaxDepth=4:BoostType=AdaBoost:AdaBoostBeta=0.5:UseBaggedBoost:BaggedSampleFraction=0.5:CreateMVAPdfs:NbinsMVAPdf=200:NsmoothMVAPdf=10:SeparationType=GiniIndex:nCuts=-1" );
    
 // MLP ////////////////////////////////////////// 
 /*
-  cv2.BookMethod( TMVA::Types::kMLP, "MLP", "!H:!V:NeuronType=sigmoid:EstimatorType=sigmoid:VarTransform=N:NCycles=235:HiddenLayers=N,N:LearningRate=0.003:TestRate=10:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:UseRegulator:ConvergenceTests=1"  ); 
+  cv2.BookMethod( TMVA::Types::kMLP, "MLP", "!H:!V:NeuronType=sigmoid:EstimatorType=sigmoid:VarTransform=N:NCycles=155:HiddenLayers=N,N,N+1:LearningRate=0.003:TestRate=10:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:UseRegulator:ConvergenceTests=1" ); 
    
    
-  cv3.BookMethod( TMVA::Types::kMLP, "MLP", "!H:!V:NeuronType=sigmoid:EstimatorType=sigmoid:VarTransform=N:NCycles=135:HiddenLayers=N,N:LearningRate=0.003:TestRate=10:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:UseRegulator:ConvergenceTests=1" ); 
+  cv3.BookMethod( TMVA::Types::kMLP, "MLP", "!H:!V:NeuronType=sigmoid:EstimatorType=sigmoid:VarTransform=N:NCycles=155:HiddenLayers=N,N,N:LearningRate=0.003:TestRate=10:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:UseRegulator:ConvergenceTests=1" ); 
    
    
-  cv4.BookMethod( TMVA::Types::kMLP, "MLP", "!H:!V:NeuronType=sigmoid:EstimatorType=sigmoid:VarTransform=N:NCycles=115:HiddenLayers=N,N:LearningRate=0.005:TestRate=10:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:UseRegulator:ConvergenceTests=1"  ); 
+  cv4.BookMethod( TMVA::Types::kMLP, "MLP", "!H:!V:NeuronType=sigmoid:EstimatorType=sigmoid:VarTransform=N:NCycles=115:HiddenLayers=N,N,N:LearningRate=0.005:TestRate=10:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:UseRegulator:ConvergenceTests=1" ); 
    
    
-  cv5.BookMethod( TMVA::Types::kMLP, "MLP", "!H:!V:NeuronType=sigmoid:EstimatorType=sigmoid:VarTransform=N:NCycles=85:HiddenLayers=N,N:LearningRate=0.02:TestRate=10:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:UseRegulator:ConvergenceTests=1"  ); 
+  cv5.BookMethod( TMVA::Types::kMLP, "MLP", "!H:!V:NeuronType=sigmoid:EstimatorType=sigmoid:VarTransform=N:NCycles=85:HiddenLayers=N,N+1:LearningRate=0.02:TestRate=10:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:UseRegulator:ConvergenceTests=1" ); 
    
    */
-// k-NN //////////////////////////////////////////
+// k-NN /////////////////////////////////////////
 /*
    cv2.BookMethod( TMVA::Types::kKNN, "KNN",
-                           "!H:nkNN=80:ScaleFrac=0.8:SigmaFact=1.0:Kernel=Gaus:UseKernel=T:UseWeight=T:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:Trim"  ); 
+                           "!H:nkNN=80:ScaleFrac=0.4:SigmaFact=1.0:Kernel=Gaus:UseKernel=T:UseWeight=T:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:Trim" ); 
    
    
    cv3.BookMethod( TMVA::Types::kKNN, "KNN",
-                           "!H:nkNN=70:ScaleFrac=0.8:SigmaFact=1.0:Kernel=Gaus:UseKernel=T:UseWeight=T:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:Trim"  ); 
+                            "!H:nkNN=100:ScaleFrac=0.6:SigmaFact=1.0:Kernel=Gaus:UseKernel=T:UseWeight=T:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:Trim" ); 
    
   
    cv4.BookMethod( TMVA::Types::kKNN, "KNN",
-                           "!H:nkNN=70:ScaleFrac=0.8:SigmaFact=1.0:Kernel=Gaus:UseKernel=T:UseWeight=T:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:Trim"  ); 
+                           "!H:nkNN=70:ScaleFrac=0.6:SigmaFact=1.0:Kernel=Gaus:UseKernel=T:UseWeight=T:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:Trim" ); 
    
    
    cv5.BookMethod( TMVA::Types::kKNN, "KNN",
-                           "!H:nkNN=30:ScaleFrac=0.8:SigmaFact=1.0:Kernel=Gaus:UseKernel=T:UseWeight=T:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:Trim"  );    
+                          "!H:nkNN=60:ScaleFrac=0.6:SigmaFact=1.0:Kernel=Gaus:UseKernel=T:UseWeight=T:CreateMVAPdfs:NbinsMVAPdf=60:NsmoothMVAPdf=10:Trim"  );    
 
     */
  
